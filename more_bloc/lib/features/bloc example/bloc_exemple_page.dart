@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unused_local_variable
+// ignore_for_file: prefer_const_constructors, unused_local_variable, avoid_print, empty_statements
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,15 +15,34 @@ class BlocExamplePage extends StatelessWidget {
       ),
       body: BlocListener<ExampleBloc, ExampleState>(
         listener: (context, state) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text("A quantidade de nomes é : ${state}"),
-              action: SnackBarAction(label: "Sair", onPressed: () {}),
-            ),
-          );
+          if (state is ExampleStateData) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                    "A quantidade de nomes é : ${state.lista_nomes.length}"),
+                action: SnackBarAction(label: "Sair", onPressed: () {}),
+              ),
+            );
+          }
         },
         child: Column(
           children: [
+            BlocConsumer<ExampleBloc, ExampleState>(
+              builder: (context, state) {
+                if (state is ExampleStateData) {
+                  return Text("O numero de nome é ${state.lista_nomes.length}");
+                } else {
+                  return SizedBox();
+                }
+              },
+              listener: (context, state) {
+                if (state is ExampleStateData) {
+                  print(
+                      "Estado alterado para ${state.lista_nomes.runtimeType}");
+                } else {}
+                ;
+              },
+            ),
             BlocBuilder<ExampleBloc, ExampleState>(
               builder: (context, state) {
                 if (state is ExampleStateData) {
