@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:more_bloc/HomePage/home_page.dart';
-import 'package:more_bloc/features/bloc%20example/bloc/exemple_bloc.dart';
-import 'package:more_bloc/features/bloc%20example/bloc_exemple_page.dart';
+import 'package:more_bloc/features/bloc_example/bloc/example_bloc.dart';
+import 'package:more_bloc/features/bloc_example/bloc_example_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       routes: {
         "/": (_) => HomePage(),
-        "/bloc_example": (context) => BlocProvider(
-              create: (_) => ExampleBloc()..add(ExampleFindNamesEvents()),
+        "/bloc/example": (_) => BlocProvider<ExampleBloc>(
+              create: (_) => ExampleBloc()..add(ExampleEventFindName()),
               child: BlocExamplePage(),
             ),
       },

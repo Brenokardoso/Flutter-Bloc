@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
                 height: 190,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed("/bloc_example");
+                    Navigator.of(context).pushNamed("/bloc/example",arguments: Text("The Args Was Been Updated"));
                   },
                   child: Text("Bloc Example"),
                 ),
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(5),
                 width: 170,
-                height: 190, 
+                height: 190,
                 child: TextButton(
                   onPressed: () {},
                   child: Text("Contact cubit"),

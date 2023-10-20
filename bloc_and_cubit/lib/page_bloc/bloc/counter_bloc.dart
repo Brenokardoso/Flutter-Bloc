@@ -9,7 +9,7 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
     on<CounterIncrement>(_increment);
     on<CounterDecrement>(_decrement);
   }
-
+  
   void _increment(CounterIncrement event, Emitter emit) {
     emit(CounterStateData(state.contador + 1));
   }
