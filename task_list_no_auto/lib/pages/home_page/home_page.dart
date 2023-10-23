@@ -36,7 +36,24 @@ class HomePage extends StatelessWidget {
               height: 150,
               margin: EdgeInsets.only(left: 40, top: 40),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/brnoshop");
+                },
+                child: Text("BrnoShop"),
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+              ),
+            ),
+            Container(
+              width: 150,
+              height: 150,
+              margin: EdgeInsets.only(left: 40, top: 40),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/");
+                },
                 child: Text("N/C"),
               ),
               decoration: BoxDecoration(
@@ -49,7 +66,9 @@ class HomePage extends StatelessWidget {
               height: 150,
               margin: EdgeInsets.only(left: 40, top: 40),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/");
+                },
                 child: Text("N/C"),
               ),
               decoration: BoxDecoration(
@@ -62,7 +81,9 @@ class HomePage extends StatelessWidget {
               height: 150,
               margin: EdgeInsets.only(left: 40, top: 40),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/");
+                },
                 child: Text("N/C"),
               ),
               decoration: BoxDecoration(
@@ -75,20 +96,9 @@ class HomePage extends StatelessWidget {
               height: 150,
               margin: EdgeInsets.only(left: 40, top: 40),
               child: TextButton(
-                onPressed: () {},
-                child: Text("N/C"),
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
-              ),
-            ),
-            Container(
-              width: 150,
-              height: 150,
-              margin: EdgeInsets.only(left: 40, top: 40),
-              child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/");
+                },
                 child: Text("N/C"),
               ),
               decoration: BoxDecoration(

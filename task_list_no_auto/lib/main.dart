@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:task_list_no_auto/pages/brnoshop/brnoshop_home_page.dart';
 import 'package:task_list_no_auto/pages/home_page/home_page.dart';
 import 'package:task_list_no_auto/pages/task_list/task_list_home_page.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (_) => HomePage(),
         "/task_list": (_) => TaskListHomePage(),
+        "/brnoshop": (_) => BrnoShopHomePage(),
       },
       initialRoute: "/",
     );
