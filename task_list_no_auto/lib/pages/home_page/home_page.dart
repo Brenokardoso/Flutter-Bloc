@@ -52,9 +52,9 @@ class HomePage extends StatelessWidget {
               margin: EdgeInsets.only(left: 40, top: 40),
               child: TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed("/");
+                  Navigator.of(context).pushNamed("/shop_list");
                 },
-                child: Text("N/C"),
+                child: Text("Lista de Compras Com Bloc"),
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),

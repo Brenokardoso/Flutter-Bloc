@@ -2,12 +2,14 @@
 
 part of 'brnoshop_bloc.dart';
 
-abstract class BrnoShopState {
-  final List<dynamic> carrinho_de_compras = [];
-}
+abstract class BrnoShopState {}
 
 class BrnoShopStateInit extends BrnoShopState {
   BrnoShopStateInit() : super();
 }
 
-class BrnoShopStateData extends BrnoShopState {}
+class BrnoShopStateData extends BrnoShopState {
+  List<dynamic> carrinho_de_compras = [];
+
+  BrnoShopStateData(this.carrinho_de_compras);
+}

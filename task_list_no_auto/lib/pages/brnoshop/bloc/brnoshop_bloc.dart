@@ -7,4 +7,9 @@ part 'brnoshop_state.dart';
 
 class BrnoShopBloc extends Bloc<BrnoShopEvent, BrnoShopState> {
   BrnoShopBloc() : super(BrnoShopStateInit());
+
+  _addItem(BrnoShopEvent event, Emitter emit) {
+    List<String> lista = ["ok"];
+    emit(BrnoShopStateData(lista));
+  }
 }

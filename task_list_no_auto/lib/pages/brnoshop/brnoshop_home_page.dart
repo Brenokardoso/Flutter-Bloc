@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, avoid_unnecessary_containers, sized_box_for_whitespace
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_list_no_auto/pages/brnoshop/bloc/brnoshop_bloc.dart';
 
 class BrnoShopHomePage extends StatefulWidget {
   const BrnoShopHomePage({super.key});
@@ -54,42 +56,53 @@ class _BrnoShopHomePageState extends State<BrnoShopHomePage> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Wrap(
-          children: [
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: lista_nome_das_ferramentas.length,
-              itemBuilder: (context, index) => Container(
-                child: Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(),
-                      height: 100,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(
-                            lista_do_link_das_imagens[index],
+      body: BlocConsumer<BrnoShopBloc, BrnoShopState>(
+        builder: (context, state) {
+          return SingleChildScrollView(
+            child: Wrap(
+              children: [
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: lista_nome_das_ferramentas.length,
+                  itemBuilder: (context, index) => Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(),
+                          height: 100,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                lista_do_link_das_imagens[index],
+                              ),
+                              fit: BoxFit.fill,
+                            ),
                           ),
-                          fit: BoxFit.fill,
                         ),
-                      ),
+                        ListTile(
+                          leading: Icon(Icons.build_sharp),
+                          title: Text(lista_nome_das_ferramentas[index]),
+                          subtitle: Text("12\$"),
+                          trailing: IconButton(
+                            onPressed: () {
+                              context
+                                  .read<BrnoShopBloc>()
+                                  .add(BrnoShopEventAddProduto());
+
+                              BrnoShopEventAddProduto();
+                            },
+                            icon: Icon(Icons.shop),
+                          ),
+                        ),
+                      ],
                     ),
-                    ListTile(
-                      leading: Icon(Icons.build_sharp),
-                      title: Text(lista_nome_das_ferramentas[index]),
-                      subtitle: Text("12\$"),
-                      trailing: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.shop),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
+                  ),
+                )
+              ],
+            ),
+          );
+        },
+        listener: (context, state) => print("Class Rebuildada"),
       ),
     );
   }
