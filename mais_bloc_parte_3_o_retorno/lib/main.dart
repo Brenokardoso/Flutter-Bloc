@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mais_bloc_parte_3_o_retorno/features/example%20freezed/example_bloc_freezed_homepage.dart';
 import 'package:mais_bloc_parte_3_o_retorno/features/example/bloc/example_bloc.dart';
 import 'package:mais_bloc_parte_3_o_retorno/features/example/bloc_example_page.dart';
 import 'package:mais_bloc_parte_3_o_retorno/home/home_page.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
                   ExampleBloc()..add(ExampleBlocEventFindName()),
               child: const ExampleBlocPage(),
             ),
+        "/freezed": (freezedContext) => const FreezedBlocPage(),
       },
       initialRoute: "/",
     );
