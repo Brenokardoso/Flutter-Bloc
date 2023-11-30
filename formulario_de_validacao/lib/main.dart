@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:formulario_de_validacao/bloc/bloc_bloc.dart';
 import 'package:formulario_de_validacao/pages/home_page.dart';
+import "package:flutter_bloc/flutter_bloc.dart";
 void main(){
   runApp(const Main());
 }
@@ -15,7 +17,10 @@ const Main({ Key? key }) : super(key: key);
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        "/" : (contextRouteHomePage)=> HomePage(),
+        "/" : (contextRouteHomePage)=> BlocProvider<FormsBloc>(
+          create: (contextFormsPage) => FormsBloc(),
+          child: HomePage(),
+        ),
       },
     );
   }
